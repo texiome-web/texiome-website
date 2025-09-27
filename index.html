@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texiome - Tekstil Atık Oyunlaştırma</title>
+    <link href="https://fonts.cdnfonts.com/css/lemon-milk" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                🎮 Texiome
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">🏠 Ana Sayfa</a></li>
+                <li><a href="#problem" class="nav-link">📊 Problem</a></li>
+                <li><a href="#solution" class="nav-link">💡 Çözüm</a></li>
+                <li><a href="#about" class="nav-link">👥 Hakkımızda</a></li>
+                <li><a href="#how-it-works" class="nav-link">🎯 Nasıl Çalışır</a></li>
+                <li><a href="#stats" class="nav-link">📈 İstatistikler</a></li>
+            </ul>
+            <button class="login-btn" id="loginBtn">🔐 Giriş Yap</button>
+        </div>
+    </nav>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>🔐 Giriş Yap</h2>
+            <form id="loginForm">
+                <input type="email" placeholder="📧 E-posta" required>
+                <input type="password" placeholder="🔒 Şifre" required>
+                <button type="submit">Giriş Yap</button>
+            </form>
+            <p>Hesabınız yok mu? <a href="#" id="showRegister">📝 Kayıt Ol</a></p>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>📝 Kayıt Ol</h2>
+            <form id="registerForm">
+                <input type="text" placeholder="👤 Ad Soyad" required>
+                <input type="email" placeholder="📧 E-posta" required>
+                <input type="password" placeholder="🔒 Şifre" required>
+                <button type="submit">Kayıt Ol</button>
+            </form>
+            <p>Zaten hesabınız var mı? <a href="#" id="showLogin">🔐 Giriş Yap</a></p>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="game-badge">🎮 OYUN MODU AKTİF</div>
+                <h1>Tekstil Atıklarını <span class="highlight">Oyunlaştır</span> ♻️</h1>
+                <p class="hero-subtitle">👕 Giysilerini topla, ⭐ puan kazan, 🏆 liderlik tablosunda yüksel! Gerçek dünya problemlerine oyun çözümleri.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">5.247</div>
+                        <div class="stat-label">👥 Aktif Oyuncu</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">12.8T</div>
+                        <div class="stat-label">📦 Kurtarılan Atık</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">47.5K</div>
+                        <div class="stat-label">✅ Tamamlanan Görev</div>
+                    </div>
+                </div>
+
+                <div class="hero-buttons">
+                    <button class="btn-primary" id="startGame">🚀 Hemen Başla</button>
+                    <button class="btn-secondary" id="howToPlay">❓ Nasıl Çalışır</button>
+                    <button class="btn-tertiary" id="viewMap">🗺️ Haritayı Gör</button>
+                </div>
+            </div>
+            
+            <div class="hero-game-preview">
+                <div class="game-interface">
+                    <div class="game-header">
+                        <span class="game-title">🎯 TEXIOME QUEST</span>
+                        <span class="game-level">⭐ Seviye 15</span>
+                    </div>
+                    <div class="game-map">
+                        <div class="map-point completed">1️⃣</div>
+                        <div class="map-point active">2️⃣</div>
+                        <div class="map-point">3️⃣</div>
+                        <div class="map-point">4️⃣</div>
+                    </div>
+                    <div class="game-stats">
+                        <div class="player-stats">
+                            <div class="xp-bar">
+                                <div class="xp-progress" style="width: 65%"></div>
+                            </div>
+                            <div class="stats-info">
+                                <span>⚡ XP: 650/1000</span>
+                                <span>💎 Puan: 2.450</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-actions">
+                        <button class="game-btn" id="collectPoints">💰 Puan Topla</button>
+                        <button class="game-btn" id="viewLeaderboard">🏆 Liderlik</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problem" class="problem-section">
+        <div class="container">
+            <h2 class="section-title">🌍 Küresel Tekstil Krizi</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>92M Ton</h3>
+                    <p>📦 Yıllık Tekstil Atığı</p>
+                    <button class="info-btn" data-info="Dünyada her yıl 92 milyon ton tekstil atığı oluşuyor">ℹ️ Bilgi</button>
+                </div>
+                <div class="stat-card">
+                    <h3>%73'ü</h3>
+                    <p>🔥 Çöplükte veya Yakılıyor</p>
+                    <button class="info-btn" data-info="Atıkların %73'ü çöplüklerde veya yakma tesislerinde kayboluyor">ℹ️ Bilgi</button>
+                </div>
+                <div class="stat-card">
+                    <h3>20.000L</h3>
+                    <p>💧 1kg Pamuk İçin Su</p>
+                    <button class="info-btn" data-info="1kg pamuk üretimi için 20.000 litre su gerekiyor">ℹ️ Bilgi</button>
+                </div>
+                <div class="stat-card">
+                    <h3>%2-8</h3>
+                    <p>🌫️ Sera Gazı Emisyonu</p>
+                    <button class="info-btn" data-info="Tekstil endüstrisi küresel karbon emisyonlarının %2-8'inden sorumlu">ℹ️ Bilgi</button>
+                </div>
+            </div>
+            
+            <div class="problem-content">
+                <div class="problem-text">
+                    <h3>📊 Gerçekler ve Rakamlar</h3>
+                    <p>Tekstil atıkları dünyanın en büyük çevre problemlerinden biri. Her saniye bir kamyon dolusu tekstil atığı çöplüklere atılıyor.</p>
+                    
+                    <div class="impact-list">
+                        <div class="impact-item">
+                            <strong>💧 Su Kirliliği:</strong> Tekstil boyama işlemleri su kaynaklarını kirletiyor
+                        </div>
+                        <div class="impact-item">
+                            <strong>🌱 Toprak Kirliliği:</strong> Sentetik lifler toprakta 200 yıl bozulmadan kalabiliyor
+                        </div>
+                        <div class="impact-item">
+                            <strong>💨 Hava Kirliliği:</strong> Yakılan tekstil atıkları zehirli gazlar yayıyor
+                        </div>
+                    </div>
+                    
+                    <button class="btn-primary" id="learnMoreProblem">📚 Daha Fazla Bilgi</button>
+                </div>
+                <div class="problem-visual">
+                    <div class="waste-pyramid">
+                        <div class="pyramid-layer" style="height: 70%">
+                            <span>🗑️ Çöplük (%73)</span>
+                        </div>
+                        <div class="pyramid-layer" style="height: 50%">
+                            <span>🔥 Yakma (%45)</span>
+                        </div>
+                        <div class="pyramid-layer" style="height: 30%">
+                            <span>♻️ Geri Dönüşüm (%15)</span>
+                        </div>
+                        <div class="pyramid-layer" style="height: 15%">
+                            <span>🔄 Yeniden Kullanım (%7)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution" class="solution-section">
+        <div class="container">
+            <h2 class="section-title">💡 Texiome Çözümü</h2>
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">🎯</div>
+                    <h3>Akıllı Görev Sistemi</h3>
+                    <p>Kişiselleştirilmiş görevlerle atık toplamayı eğlenceli hale getiriyoruz</p>
+                    <button class="solution-btn" data-solution="görev">🔍 Detaylı İncele</button>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">📊</div>
+                    <h3>Gerçek Zamanlı Takip</h3>
+                    <p>Topladığınız atıkların çevresel etkisini anlık olarak görün</p>
+                    <button class="solution-btn" data-solution="takip">📈 İstatistikleri Gör</button>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">🏆</div>
+                    <h3>Ödül Mekanizması</h3>
+                    <p>Puanlar, rozetler ve ödüllerle motivasyonunuzu artırıyoruz</p>
+                    <button class="solution-btn" data-solution="ödül">🎁 Ödülleri Keşfet</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+   <section id="about" class="about-us">
+    <div class="container">
+        <div class="about-container">
+            <div class="circular-image">
+                <div class="circular-image-placeholder">
+                    <img src="img/texi.png" alt="Texiome Ekibi">
+                </div>
+            </div>
+            <div class="about-content">
+                <h2>👥 Hakkımızda</h2>
+                <p>Texiome olarak, tekstil atıklarının yarattığı çevresel sorunlara yenilikçi çözümler sunmak için yola çıktık. Amacımız, sürdürülebilir bir moda ekosistemi oluşturmak ve her bir giysinin değerini maksimize etmek.</p>
+                <p>🎮 Oyunlaştırma teknolojileri ile tekstil atık yönetimini eğlenceli ve etkileşimli hale getiriyor, kullanıcılarımızı döngüsel ekonomiye aktif olarak katılmaları için teşvik ediyoruz.</p>
+                
+                <div class="team-stats">
+                    <div class="team-stat">
+                        <div class="number">3</div>
+                        <div class="label">📅 Yıllık Deneyim</div>
+                    </div>
+                    <div class="team-stat">
+                        <div class="number">50K+</div>
+                        <div class="label">😊 Mutlu Kullanıcı</div>
+                    </div>
+                    <div class="team-stat">
+                        <div class="number">15</div>
+                        <div class="label">🏅 Ödül</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">🎯 Nasıl Çalışır?</h2>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1️⃣</div>
+                    <div class="step-content">
+                        <h3>📝 Kayıt Ol ve Giriş Yap</h3>
+                        <p>Texiome platformuna ücretsiz kaydolun ve hesabınıza giriş yapın</p>
+                        <button class="step-action" data-step="kayıt">🚀 Hemen Kaydol</button>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2️⃣</div>
+                    <div class="step-content">
+                        <h3>🎯 Görev Seçin</h3>
+                        <p>Günlük ve haftalık görevler arasından seçim yapın</p>
+                        <button class="step-action" data-step="görev">📋 Görevleri Gör</button>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3️⃣</div>
+                    <div class="step-content">
+                        <h3>📦 Atık Toplayın</h3>
+                        <p>Belirlenen noktalarda tekstil atıklarını toplayın</p>
+                        <button class="step-action" data-step="toplama">🗺️ Toplama Noktaları</button>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4️⃣</div>
+                    <div class="step-content">
+                        <h3>🎁 Ödül Kazanın</h3>
+                        <p>Puanlar, rozetler ve ödüller kazanın</p>
+                        <button class="step-action" data-step="ödül">🏆 Ödülleri Gör</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section id="stats" class="statistics-section">
+        <div class="container">
+            <h2 class="section-title">📈 Başarı Hikayelerimiz</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-number">12.8</div>
+                    <div class="achievement-unit">📦 Ton</div>
+                    <div class="achievement-desc">Toplanan Atık Miktarı</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-number">5.247</div>
+                    <div class="achievement-unit">👥 Kişi</div>
+                    <div class="achievement-desc">Aktif Kullanıcı</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-number">47.5K</div>
+                    <div class="achievement-unit">✅ Görev</div>
+                    <div class="achievement-desc">Tamamlanan Görev</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-number">256M</div>
+                    <div class="achievement-unit">💧 Litre</div>
+                    <div class="achievement-desc">Tasarruf Edilen Su</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">🎮 Texiome</div>
+                    <p>Tekstil atıklarını oyunla kurtar ♻️</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#" id="footerAbout">👥 Hakkımızda</a>
+                    <a href="#" id="footerContact">📞 İletişim</a>
+                    <a href="#" id="footerHelp">❓ Yardım</a>
+                    <a href="#" id="footerPrivacy">🔒 Gizlilik</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Texiome. Tüm hakları saklıdır. 🌍</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Map Modal -->
+   <div id="mapModal" class="modal">
+    <div class="modal-content large">
+        <span class="close" data-modal="mapModal">&times;</span>
+        <h2>🗺️ Kayseri Toplama Noktaları</h2>
+        
+        <div class="kayseri-map">
+            <div class="map-container">
+                
+                <div class="map-visual">
+                    <div class="map-point" data-location="Kocasinan" style="top: 25%; left: 25%;"></div>
+                    <div class="map-point" data-location="Melikgazi" style="top: 40%; left: 30%;"></div>
+                    <div class="map-point" data-location="Talas" style="top: 40%; left: 40%;"></div>
+                    </div>
+
+                <ul class="location-list">
+                    <li>Kocasinan, Yeşil Mahalle - (12 Giyim, 5 Aksesuar)</li>
+                    <li>Melikgazi, Alpaslan Parkı - (8 Giyim, 2 Aksesuar)</li>
+                    <li>Talas, Erciyes Üniversitesi Durağı - (15 Giyim, 7 Aksesuar)</li>
+                    <li>Hacılar, Merkez Meydan - (2 Giyim)</li>
+                    <li>İncesu, Sanayi Bölgesi - (20 Kumaş Atığı)</li>
+                    <button class="step-action" id="selectLocation">Seçtiğim Lokasyona Navigasyon</button>
+                </ul>
+                
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
